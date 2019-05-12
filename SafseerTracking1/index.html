@@ -1,0 +1,953 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="ism">
+        <meta name="keywords" content="ism">
+		<link rel="shortcut icon" href="assets/images/favicon.ico"/> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>MAP</title>
+		
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alegreya+Sans">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+ 	
+		<link rel="stylesheet" href="css/datepicker.css">		
+		<link rel="stylesheet" href="css/select2.min.css">		
+		<link rel="stylesheet" href="simple-line-icons/css/simple-line-icons.css">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css">
+        	
+    </head>
+    <body>
+        <main>
+            <div id="header">
+                <nav class="navbar navbar-default navbar-main navbar-fixed-top">
+                    <div class="container-fluid">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-header-navbar-collapse" aria-expanded="false">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <a class="navbar-brand" href="#" title="logo">
+                                <img src="img/logo.png" alt="logo" class="img-responsive">
+                            </a>
+                        </div>
+                        <div class="collapse navbar-collapse" id="bs-header-navbar-collapse">
+                            <ul class="nav navbar-nav navbar-right list-header">
+
+                                <li class="dropdown">
+                                    <a href="javascript:" class="dropdown-toggle tooltip-cls" role="button" data-toggle="dropdown" rel="tooltip" data-placement="bottom" title="الأدوات">
+                                        <span class="icon-wrench"></span> <span class="visible-xs"> الأدوات</span>
+                                    </a>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li>
+                                            <a href="#">
+                                                <span class="icon-bell"></span>  Alerts
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <span class="icon-graph"></span> Geofencing
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <span class="icon-shuffle"></span> Routes
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <span class="icon-chart"></span> Reports
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <span class=" icon-note"></span> Ruler
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <span class="icon-location-pin"></span> POI
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <span class=" icon-cursor-move"></span> Show point
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <span class=" icon-direction"></span> Show address
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <span class="icon-speech"></span> Send command
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <span class=" icon-camera"></span> Camera / Media
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <span class="icon-notebook"></span> Tasks
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="javascript:;" onclick="view_setting()" class="tooltip-cls" rel="tooltip" data-placement="bottom" title="الاعدادات">
+                                        <span class="icon-settings"></span>  <span class="visible-xs"> الاعدادات</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="tooltip-cls" rel="tooltip" data-placement="bottom" title="دردشة">
+                                        <span class=" icon-bubble"></span>  <span class="visible-xs"> دردشة</span>
+                                    </a>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="javascript:" class="dropdown-toggle tooltip-cls" role="button" data-toggle="dropdown" rel="tooltip" data-placement="bottom" title="حسابي">
+                                        <span class="icon-user"></span>  <span class="visible-xs"> حسابي</span>
+                                    </a>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li>
+                                            <a href="#">
+                                                <span class="icon-people"></span>  العضوية
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <span class=" icon-key"></span> تغير كلمة المرور
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <span class="icon-logout"></span> تسجيل خروج
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <img src="img/SaudiFlag.png" alt="Language">
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+
+            <!-- sidebar tab -->
+            <div id="sidebar">
+                <button class="btn-collapse"><i class="icon-arrow-left"></i></button>
+                <div class="tab-box">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a data-toggle="tab" href="#home">Objects</a></li>
+                        <li><a data-toggle="tab" href="#menu1">Events</a></li>
+                        <li><a data-toggle="tab" href="#menu2">History</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div id="home" class="tab-pane fade in active">
+                            <div class="search-box">
+                                <div class="input-group stylish-input-group">
+                                    <input type="text" class="form-control" placeholder="Type to search ...">
+                                    <span class="input-group-addon">
+                                        <button type="submit">
+                                            <span class="glyphicon glyphicon-search"></span>
+                                        </button>
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="panel-group" id="accordion">
+                                <div class="panel">
+                                    <div class="panel-heading">
+                                        <div class="panel-title">
+                                            <label class="check ">
+                                                <input type="checkbox">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                            <a data-toggle="collapse" data-parent="#accordion" class="collapsed is-collapse" href="#collapse1">
+                                                السيارات المسجلة
+                                            </a>
+                                            <div class="dropdown">
+                                                <button class="btn dropdown-toggle" type="button" data-toggle="dropdown">
+                                                    <i class=" icon-options-vertical"></i>
+                                                </button>
+                                                <ul class="dropdown-menu">
+                                                    <li><a href="#">Option 1</a></li>
+                                                    <li><a href="#">Option 2</a></li>
+                                                    <li><a href="#">Option 3</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="collapse1" class="panel-collapse collapse">
+                                        <div class="panel-body" id="cars">
+                                            <div class="panel-title">
+                                                <label class="check ">
+                                                    <input type="checkbox">
+                                                    <span class="checkmark"></span>
+                                                </label>
+                                                <a class="group">
+                                                    <div class="name pull-left">
+                                                        DAF FA
+                                                        <small>2019-01-01 15:54:42</small>
+                                                    </div>
+                                                    <div>
+                                                        <span> 50 kph </span>
+                                                        <span class="status pendding"></span>
+                                                    </div>
+                                                </a>
+                                                <div class="dropdown">
+                                                    <button class="btn dropdown-toggle" type="button" data-toggle="dropdown">
+                                                        <i class=" icon-options-vertical"></i>
+                                                    </button>
+                                                    <ul class="dropdown-menu">
+                                                        <li><a href="#">Option 1</a></li>
+                                                        <li><a href="#">Option 2</a></li>
+                                                        <li><a href="#">Option 3</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="menu1" class="tab-pane fade">
+                            <div class="search-box">
+                                <div class="input-group stylish-input-group">
+                                    <input type="text" class="form-control" placeholder="Type to search ...">
+                                    <span class="input-group-addon">
+                                        <button type="submit">
+                                            <span class="glyphicon glyphicon-search"></span>
+                                        </button>
+                                        <button type="reset">
+                                            <span class="icon-trash"></span>
+                                        </button>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="table-box">
+                                <table class="table table-list">
+                                    <thead>
+                                        <tr>
+                                            <th>Time</th>
+                                            <th>Object</th>
+                                            <th>Event</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <div>03:14:34</div>
+                                                <div>2019-01-02</div>
+                                            </td>
+                                            <td>Jeep Grand Cherokee</td>
+                                            <td>Overspeed (50 Km)</td>
+                                            <td>
+                                                <div class="dropdown">
+                                                    <button class="btn dropdown-toggle" type="button" data-toggle="dropdown">
+                                                        <i class=" icon-options-vertical"></i>
+                                                    </button>
+                                                    <ul class="dropdown-menu">
+                                                        <li><a href="#">Option 1</a></li>
+                                                        <li><a href="#">Option 2</a></li>
+                                                        <li><a href="#">Option 3</a></li>
+                                                    </ul>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div>03:14:34</div>
+                                                <div>2019-01-02</div>
+                                            </td>
+                                            <td>Jeep Grand Cherokee</td>
+                                            <td>Overspeed (50 Km)</td>
+                                            <td>
+                                                <div class="dropdown">
+                                                    <button class="btn dropdown-toggle" type="button" data-toggle="dropdown">
+                                                        <i class=" icon-options-vertical"></i>
+                                                    </button>
+                                                    <ul class="dropdown-menu">
+                                                        <li><a href="#">Option 1</a></li>
+                                                        <li><a href="#">Option 2</a></li>
+                                                        <li><a href="#">Option 3</a></li>
+                                                    </ul>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div>03:14:34</div>
+                                                <div>2019-01-02</div>
+                                            </td>
+                                            <td>Jeep Grand Cherokee</td>
+                                            <td>Overspeed (50 Km)</td>
+                                            <td>
+                                                <div class="dropdown">
+                                                    <button class="btn dropdown-toggle" type="button" data-toggle="dropdown">
+                                                        <i class=" icon-options-vertical"></i>
+                                                    </button>
+                                                    <ul class="dropdown-menu">
+                                                        <li><a href="#">Option 1</a></li>
+                                                        <li><a href="#">Option 2</a></li>
+                                                        <li><a href="#">Option 3</a></li>
+                                                    </ul>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div>03:14:34</div>
+                                                <div>2019-01-02</div>
+                                            </td>
+                                            <td>Jeep Grand Cherokee</td>
+                                            <td>Overspeed (50 Km)</td>
+                                            <td>
+                                                <div class="dropdown">
+                                                    <button class="btn dropdown-toggle" type="button" data-toggle="dropdown">
+                                                        <i class=" icon-options-vertical"></i>
+                                                    </button>
+                                                    <ul class="dropdown-menu">
+                                                        <li><a href="#">Option 1</a></li>
+                                                        <li><a href="#">Option 2</a></li>
+                                                        <li><a href="#">Option 3</a></li>
+                                                    </ul>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div>03:14:34</div>
+                                                <div>2019-01-02</div>
+                                            </td>
+                                            <td>Jeep Grand Cherokee</td>
+                                            <td>Overspeed (50 Km)</td>
+                                            <td>
+                                                <div class="dropdown">
+                                                    <button class="btn dropdown-toggle" type="button" data-toggle="dropdown">
+                                                        <i class=" icon-options-vertical"></i>
+                                                    </button>
+                                                    <ul class="dropdown-menu">
+                                                        <li><a href="#">Option 1</a></li>
+                                                        <li><a href="#">Option 2</a></li>
+                                                        <li><a href="#">Option 3</a></li>
+                                                    </ul>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div>03:14:34</div>
+                                                <div>2019-01-02</div>
+                                            </td>
+                                            <td>Jeep Grand Cherokee</td>
+                                            <td>Overspeed (50 Km)</td>
+                                            <td>
+                                                <div class="dropdown">
+                                                    <button class="btn dropdown-toggle" type="button" data-toggle="dropdown">
+                                                        <i class=" icon-options-vertical"></i>
+                                                    </button>
+                                                    <ul class="dropdown-menu">
+                                                        <li><a href="#">Option 1</a></li>
+                                                        <li><a href="#">Option 2</a></li>
+                                                        <li><a href="#">Option 3</a></li>
+                                                    </ul>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div>03:14:34</div>
+                                                <div>2019-01-02</div>
+                                            </td>
+                                            <td>Jeep Grand Cherokee</td>
+                                            <td>Overspeed (50 Km)</td>
+                                            <td>
+                                                <div class="dropdown">
+                                                    <button class="btn dropdown-toggle" type="button" data-toggle="dropdown">
+                                                        <i class=" icon-options-vertical"></i>
+                                                    </button>
+                                                    <ul class="dropdown-menu">
+                                                        <li><a href="#">Option 1</a></li>
+                                                        <li><a href="#">Option 2</a></li>
+                                                        <li><a href="#">Option 3</a></li>
+                                                    </ul>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div>03:14:34</div>
+                                                <div>2019-01-02</div>
+                                            </td>
+                                            <td>Jeep Grand Cherokee</td>
+                                            <td>Overspeed (50 Km)</td>
+                                            <td>
+                                                <div class="dropdown">
+                                                    <button class="btn dropdown-toggle" type="button" data-toggle="dropdown">
+                                                        <i class=" icon-options-vertical"></i>
+                                                    </button>
+                                                    <ul class="dropdown-menu">
+                                                        <li><a href="#">Option 1</a></li>
+                                                        <li><a href="#">Option 2</a></li>
+                                                        <li><a href="#">Option 3</a></li>
+                                                    </ul>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div>03:14:34</div>
+                                                <div>2019-01-02</div>
+                                            </td>
+                                            <td>Jeep Grand Cherokee</td>
+                                            <td>Overspeed (50 Km)</td>
+                                            <td>
+                                                <div class="dropdown">
+                                                    <button class="btn dropdown-toggle" type="button" data-toggle="dropdown">
+                                                        <i class=" icon-options-vertical"></i>
+                                                    </button>
+                                                    <ul class="dropdown-menu">
+                                                        <li><a href="#">Option 1</a></li>
+                                                        <li><a href="#">Option 2</a></li>
+                                                        <li><a href="#">Option 3</a></li>
+                                                    </ul>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div>03:14:34</div>
+                                                <div>2019-01-02</div>
+                                            </td>
+                                            <td>Jeep Grand Cherokee</td>
+                                            <td>Overspeed (50 Km)</td>
+                                            <td>
+                                                <div class="dropdown">
+                                                    <button class="btn dropdown-toggle" type="button" data-toggle="dropdown">
+                                                        <i class=" icon-options-vertical"></i>
+                                                    </button>
+                                                    <ul class="dropdown-menu">
+                                                        <li><a href="#">Option 1</a></li>
+                                                        <li><a href="#">Option 2</a></li>
+                                                        <li><a href="#">Option 3</a></li>
+                                                    </ul>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div>03:14:34</div>
+                                                <div>2019-01-02</div>
+                                            </td>
+                                            <td>Jeep Grand Cherokee</td>
+                                            <td>Overspeed (50 Km)</td>
+                                            <td>
+                                                <div class="dropdown">
+                                                    <button class="btn dropdown-toggle" type="button" data-toggle="dropdown">
+                                                        <i class=" icon-options-vertical"></i>
+                                                    </button>
+                                                    <ul class="dropdown-menu">
+                                                        <li><a href="#">Option 1</a></li>
+                                                        <li><a href="#">Option 2</a></li>
+                                                        <li><a href="#">Option 3</a></li>
+                                                    </ul>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div>03:14:34</div>
+                                                <div>2019-01-02</div>
+                                            </td>
+                                            <td>Jeep Grand Cherokee</td>
+                                            <td>Overspeed (50 Km)</td>
+                                            <td>
+                                                <div class="dropdown">
+                                                    <button class="btn dropdown-toggle" type="button" data-toggle="dropdown">
+                                                        <i class=" icon-options-vertical"></i>
+                                                    </button>
+                                                    <ul class="dropdown-menu">
+                                                        <li><a href="#">Option 1</a></li>
+                                                        <li><a href="#">Option 2</a></li>
+                                                        <li><a href="#">Option 3</a></li>
+                                                    </ul>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div>03:14:34</div>
+                                                <div>2019-01-02</div>
+                                            </td>
+                                            <td>Jeep Grand Cherokee</td>
+                                            <td>Overspeed (50 Km)</td>
+                                            <td>
+                                                <div class="dropdown">
+                                                    <button class="btn dropdown-toggle" type="button" data-toggle="dropdown">
+                                                        <i class=" icon-options-vertical"></i>
+                                                    </button>
+                                                    <ul class="dropdown-menu">
+                                                        <li><a href="#">Option 1</a></li>
+                                                        <li><a href="#">Option 2</a></li>
+                                                        <li><a href="#">Option 3</a></li>
+                                                    </ul>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div>03:14:34</div>
+                                                <div>2019-01-02</div>
+                                            </td>
+                                            <td>Jeep Grand Cherokee</td>
+                                            <td>Overspeed (50 Km)</td>
+                                            <td>
+                                                <div class="dropdown">
+                                                    <button class="btn dropdown-toggle" type="button" data-toggle="dropdown">
+                                                        <i class=" icon-options-vertical"></i>
+                                                    </button>
+                                                    <ul class="dropdown-menu">
+                                                        <li><a href="#">Option 1</a></li>
+                                                        <li><a href="#">Option 2</a></li>
+                                                        <li><a href="#">Option 3</a></li>
+                                                    </ul>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div>03:14:34</div>
+                                                <div>2019-01-02</div>
+                                            </td>
+                                            <td>Jeep Grand Cherokee</td>
+                                            <td>Overspeed (50 Km)</td>
+                                            <td>
+                                                <div class="dropdown">
+                                                    <button class="btn dropdown-toggle" type="button" data-toggle="dropdown">
+                                                        <i class=" icon-options-vertical"></i>
+                                                    </button>
+                                                    <ul class="dropdown-menu">
+                                                        <li><a href="#">Option 1</a></li>
+                                                        <li><a href="#">Option 2</a></li>
+                                                        <li><a href="#">Option 3</a></li>
+                                                    </ul>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div>03:14:34</div>
+                                                <div>2019-01-02</div>
+                                            </td>
+                                            <td>Jeep Grand Cherokee</td>
+                                            <td>Overspeed (50 Km)</td>
+                                            <td>
+                                                <div class="dropdown">
+                                                    <button class="btn dropdown-toggle" type="button" data-toggle="dropdown">
+                                                        <i class=" icon-options-vertical"></i>
+                                                    </button>
+                                                    <ul class="dropdown-menu">
+                                                        <li><a href="#">Option 1</a></li>
+                                                        <li><a href="#">Option 2</a></li>
+                                                        <li><a href="#">Option 3</a></li>
+                                                    </ul>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div>03:14:34</div>
+                                                <div>2019-01-02</div>
+                                            </td>
+                                            <td>Jeep Grand Cherokee</td>
+                                            <td>Overspeed (50 Km)</td>
+                                            <td>
+                                                <div class="dropdown">
+                                                    <button class="btn dropdown-toggle" type="button" data-toggle="dropdown">
+                                                        <i class=" icon-options-vertical"></i>
+                                                    </button>
+                                                    <ul class="dropdown-menu">
+                                                        <li><a href="#">Option 1</a></li>
+                                                        <li><a href="#">Option 2</a></li>
+                                                        <li><a href="#">Option 3</a></li>
+                                                    </ul>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <div>03:14:34</div>
+                                                <div>2019-01-02</div>
+                                            </td>
+                                            <td>Jeep Grand Cherokee</td>
+                                            <td>Overspeed (50 Km)</td>
+                                            <td>
+                                                <div class="dropdown">
+                                                    <button class="btn dropdown-toggle" type="button" data-toggle="dropdown">
+                                                        <i class=" icon-options-vertical"></i>
+                                                    </button>
+                                                    <ul class="dropdown-menu">
+                                                        <li><a href="#">Option 1</a></li>
+                                                        <li><a href="#">Option 2</a></li>
+                                                        <li><a href="#">Option 3</a></li>
+                                                    </ul>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div id="menu2" class="tab-pane fade">
+                            <form id="history-form" action="/api/history" method="GET" class="form-horizontal">
+                                <div class="form-group">
+                                    <div class="col-xs-3">
+                                        <p>Device:</p>
+                                    </div>
+                                    <div class="col-xs-9">
+                                        <select id="selectedCar" required name="selectedCar" data-placeholder="Select Device ...." class="form-control select">
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-xs-3">
+                                        <p>From:</p>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class='input-group' id='datetimepicker1'>
+                                            <input type='text' class="form-control" id="from" name="from" placeholder="From" required />
+                                            <span class="input-group-addon">
+                                                <span class="glyphicon glyphicon-calendar"></span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-xs-3">
+                                        <p>TO:</p>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class='input-group' id='datetimepicker2'>
+                                            <input type='text' class="form-control" id="to" name="to" placeholder="To" required />
+                                            <span class="input-group-addon">
+                                                <span class="glyphicon glyphicon-calendar"></span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-xs-12">
+                                        <a href="#advanced" class="pull-right" data-toggle="collapse">
+                                            <small>Advanced</small>
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <div class="form-group collapse" id="advanced">
+                                    <div class="col-xs-3">
+                                        <p>Stops:</p>
+                                    </div>
+                                    <div class="col-xs-9">
+                                        <select data-placeholder="Select Device ...." class="form-control">
+                                            <option>00:00</option>
+                                            <option>.......</option>
+                                            <option>.......</option>
+                                            <option>.......</option>
+                                            <option>.......</option>
+                                        </select>
+                                        <br>
+                                        <label class="check ">
+                                            <input type="checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+
+                                        Snap to road
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-xs-8">
+                                        <button type="submit" class="btn btn-block btn-primary">Show History</button>
+                                    </div>
+                                    <div class="col-xs-2">
+                                        <div class="dropdown">
+                                            <button class="btn btn-block btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+                                                <i class=" icon-cloud-download"></i>
+                                            </button>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="#">Export to GSR</a></li>
+                                                <li><a href="#">Export to KML</a></li>
+                                                <li><a href="#">Export to GPX</a></li>
+                                                <li><a href="#">Export to CSV</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-2">
+                                        <button type="reset" class="btn btn-block btn-default"><i class="icon-trash"></i></button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- sidebar tab -->
+            <div id="footerbar">
+                <div id="widgets">
+                    <button class="btn-collapse"><i class="icon-arrow-down"></i></button>
+                    <div class="widgets-content">
+                        <div class="widget widget-device">
+                            <div class="widget-heading">
+                                <div class="widget-title">
+                                    <div class="pull-right">
+                                        <span class="status tooltip-cls online" title="متصل">متصل</span>
+                                        <span class="status-text">متصل</span>
+                                    </div>
+                                    <i class="icon-paper-plane"></i>
+                                    <span class="name">BMW M5</span>
+                                </div>
+                            </div>
+                            <div class="widget-body">
+                                <table class="table">
+                                    <tbody>
+                                        <tr>
+                                            <td>العنوان:</td>
+                                            <td> المملكة العربية السعودية - الرياض </td>
+                                        </tr>
+                                        <tr>
+                                            <td>الوقت:</td>
+                                            <td> 2018-12-28 12:27:09 </td>
+                                        </tr>
+                                        <tr>
+                                            <td>مدة التوقف:</td>
+                                            <td> 0h </td>
+                                        </tr>
+                                        <tr>
+                                            <td>السائق:</td>
+                                            <td>محمد حسان</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="widget widget-sensors">
+                            <div class="widget-heading">
+                                <div class="widget-title"><i class="icon-feed"></i> أجهزة الاستشعار</div>
+                            </div>
+                            <div class="widget-body">
+                                <table class="table">
+                                    <tbody>
+                                        <tr>
+                                            <td> RSSI</td>
+                                            <td>40 %</td>
+                                        </tr>
+                                        <tr>
+                                            <td> Blocked</td>
+                                            <td>Off</td>
+                                        </tr>
+                                        <tr>
+                                            <td> Charge</td>
+                                            <td>On</td>
+                                        </tr>
+                                        <tr>
+                                            <td> GSM</td>
+                                            <td>40 %</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <table class="table">
+                                    <tbody>
+                                        <tr>
+                                            <td> Battery</td>
+                                            <td>6 %</td>
+                                        </tr>
+                                        <tr>
+                                            <td> Ignition</td>
+                                            <td>On</td>
+                                        </tr>
+                                        <tr>
+                                            <td> Satellites</td>
+                                            <td>9</td>
+                                        </tr>
+                                        <tr>
+                                            <td> السرعة</td>
+                                            <td>40 kph</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="widget widget-streetview">
+                            <div class="widget-heading">
+                                <div class="widget-title">
+                                    <i class="icon streetview"></i>  مشاهدة الشارع باستخدام جوجل
+                                </div>
+                            </div>
+                            <div class="widget-body">
+                                <a href="http://maps.google.com/maps?q=&amp;layer=c&amp;cbll=19.39521,-98.86738&amp;cbp=11,109,0,0,0" target="_blank"><img alt="Street view" src="http://demo.gpswox.com/streetview.jpg?size=290x125&amp;location=19.39521,-98.86738&amp;heading=109"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- sidebar tool -->
+
+            <div id="sidebar-tools">
+                <ul class="list-unstyled">
+                    <li><a href="#" class="tooltip-cls active" data-placement="left" title="تعبئة"><i class="icon-frame"></i></a></li>
+                    <li><a href="#" class="tooltip-cls active" data-placement="left" title="الخريطة"><i class="icon-map"></i></a></li>
+                    <li><a href="#" class="tooltip-cls" data-placement="left" title="تكبير"><i class="icon-magnifier-add"></i></a></li>
+                    <li><a href="#" class="tooltip-cls" data-placement="left" title="تصغير"><i class="icon-magnifier-remove"></i></a></li>
+
+                    <li><a href="#" class="tooltip-cls" data-placement="left" title="تناسب السيارات"><i class=" icon-speedometer"></i></a></li>
+                    <li><a href="#" class="tooltip-cls active" data-placement="left" title="السيارات"><i class=" icon-paper-plane"></i></a></li>
+                    <li><a href="#" class="tooltip-cls" data-placement="left" title="الحدود الجغرافية"><i class="icon-graph"></i></a></li>
+                    <li><a href="#" class="tooltip-cls" data-placement="left" title="الشوارع"><i class="icon-shuffle"></i></a></li>
+                    <li><a href="#" class="tooltip-cls active" data-placement="left" title="المعالم المهمة"><i class="icon-location-pin"></i></a></li>
+                    <li><a href="#" class="tooltip-cls" data-placement="left" title="عرض الأسماء"><i class="icon-speech"></i></a></li>
+                </ul>
+            </div>
+
+            <div class="map" id="map"></div>
+        </main>
+        <div id="setting" class="modal fade" role="dialog">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span>×</span></button>
+                        <h4 class="modal-title">
+                            <i class="icon-settings"></i> Setup
+                        </h4>
+                    </div>
+                    <div class="modal-body">
+                        <div id="setting_body"></div>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="buttons">
+                            <button type="submit" class="btn btn-primary">Save</button>
+                            <button type="reset" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="carTracking" class="modal fade" role="dialog">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span>×</span></button>
+                        <h4 class="modal-title">
+                            <i class="icon-settings"></i> Car tracking
+                        </h4>
+                    </div>
+                    <div class="modal-body">
+                        <div id="carTracking_body"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>   
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
+        
+        <script src="js/bootstrap-datepicker.js"></script>
+        <script src="js/select2.min.js"></script>
+
+
+        <!--Reference the SignalR library. -->
+        <script src="Scripts/jquery.signalR-2.2.3.min.js"></script>
+        <!--Reference the autogenerated SignalR hub script. -->
+        <script src="signalr/hubs"></script>
+
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDIZq8K8BvQox0Ii8-swjUvQ1qGC8wGECc"></script>
+    <script src="Scripts/main.js"></script>
+
+
+        <script>
+
+            $(".select").select2({ dir: "ltr" });
+            $('.date').datepicker({
+                format: 'yyyy-mm-dd',
+                autoclose: true,
+                todayBtn: true,
+            });
+
+
+            //var map;
+            //var Work = { lat: 24.7044473, lng: 46.6621941 };
+
+            //function initMap() {
+            //    map = new google.maps.Map(document.getElementById('map'), {
+            //        zoom: 10,
+            //        center: Work
+            //    });
+
+            //    marker = new google.maps.Marker({
+            //        map: map,
+            //        draggable: true,
+            //        animation: google.maps.Animation.DROP,
+            //        position: { lat: 24.7044473, lng: 46.6621941 }
+            //    });
+            //    marker.addListener('click', toggleBounce);
+
+            //}
+
+            //function toggleBounce() {
+            //    if (marker.getAnimation() !== null) {
+            //        marker.setAnimation(null);
+            //    } else {
+            //        marker.setAnimation(google.maps.Animation.BOUNCE);
+            //    }
+            //}
+
+            //$(document).ready(function (e) {
+            //    initMap();
+            //});
+
+            //function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+            //    infoWindow.setPosition(pos);
+            //    infoWindow.setContent(browserHasGeolocation
+            //        ? 'Error: The Geolocation service failed.'
+            //        : 'Error: Your browser doesn\'t support geolocation.');
+            //}
+
+
+
+
+            $('.tooltip-cls').tooltip();
+
+            $("#sidebar .btn-collapse").click(function () {
+                $("#sidebar").toggleClass("hide-div");
+            });
+            $("#footerbar .btn-collapse").click(function () {
+                $("#footerbar").toggleClass("hide-div");
+            });
+
+            function view_setting() {
+                $('#setting_body').load('setting.html', function () {
+                    $('#setting').modal("show");
+                });
+            }
+
+
+        </script>
+    </body>
+</html> 

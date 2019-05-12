@@ -1,0 +1,327 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="CarsMapForms.SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server" >
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>الصفحة الرئيسية - تعقب المركبات</title>
+
+    <!-- Basic -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="keywords" content="HTML5 Template"/>
+    <meta name="description" content="Porto - Responsive HTML5 Template">
+    <meta name="author" content="okler.net">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon"/>
+    <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <!-- Web Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700%7CSintony:400,700" rel="stylesheet" type="text/css">
+
+    <!-- Vendor CSS -->
+    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="vendor/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="vendor/animate/animate.min.css">
+    <link rel="stylesheet" href="vendor/simple-line-icons/css/simple-line-icons.min.css">
+    <link rel="stylesheet" href="vendor/owl.carousel/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="vendor/owl.carousel/assets/owl.theme.default.min.css">
+    <link rel="stylesheet" href="vendor/magnific-popup/magnific-popup.min.css">
+    <link href="vendor/bootstrap-datepicker/bootstrap-datepicker3.css" rel="stylesheet" />
+
+    <!-- Theme CSS -->
+    <link rel="stylesheet" href="css/theme.css">
+    <link rel="stylesheet" href="css/theme-elements.css">
+    <link rel="stylesheet" href="css/theme-blog.css">
+    <link rel="stylesheet" href="css/theme-shop.css">
+
+    <!-- Current Page CSS -->
+    <link rel="stylesheet" href="vendor/rs-plugin/css/settings.css">
+    <link rel="stylesheet" href="vendor/rs-plugin/css/layers.css">
+    <link rel="stylesheet" href="vendor/rs-plugin/css/navigation.css">
+
+    <!-- Skin CSS -->
+    <link rel="stylesheet" href="css/skins/skin-business-consulting.css">
+
+    <!-- Demo CSS -->
+    <link rel="stylesheet" href="css/demos/demo-business-consulting.css">
+
+    <!-- Theme Custom CSS -->
+    <link rel="stylesheet" href="css/custom.css">
+
+    <!-- Head Libs -->
+    <script src="vendor/modernizr/modernizr.min.js"></script>
+    <link href="vendor/bootstrap-rtl/bootstrap-rtl.css" rel="stylesheet" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+    
+    <style>
+        .headerClass > th 
+        {
+            text-align:center !important;
+            padding: 10px;
+            background-color: #1A1E2A !important;
+        }
+        .cell {
+            padding: 10px;
+        }
+        #GridView1 th { text-align : center !important }
+
+
+        .dropdown-menu {
+            right: 0 !important;
+        }
+
+    </style>
+
+</head>
+<body>
+<div class="body">
+    <form id="form1" runat="server">
+        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+    <header id="header" class="header-narrow header-semi-transparent header-transparent-sticky-deactive custom-header-transparent-bottom-border header-flex" data-plugin-options="{'stickyEnabled': true, 'stickyEnableOnBoxed': true, 'stickyEnableOnMobile': true, 'stickyStartAt': 1, 'stickySetTop': '1'}">
+        <div class="header-body">
+            <div class="header-container container">
+                <div class="header-row">
+                    <div class="header-column">
+                        <div class="header-logo">
+                            <a href="demo-business-consulting.html">
+                                <img alt="Porto" width="82" height="40" src="img/logo-default-slim-dark.png">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="header-column">
+                        <div class="header-row">
+                            <div class="header-nav header-nav-dark-dropdown">
+                                <button class="btn header-btn-collapse-nav" data-toggle="collapse" data-target=".header-nav-main">
+                                    <i class="fa fa-bars"></i>
+                                </button>
+                                <div class="header-nav-main header-nav-main-square custom-header-nav-main-effect-1 collapse">
+                                    <nav>
+                                        <ul class="nav nav-pills" id="mainNav">
+                                            <li>
+                                                <a href="#">
+                                                    من نحن
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    اتصل بنا
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
+
+    <footer id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 center">
+                    <p>
+                        2018 © Car Tracker <span class="text-color-light"></span> - جميع الحقوق محفوظة
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    </form>
+</div>
+
+
+<!-- Vendor -->
+<script src="Scripts/jquery-1.10.2.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<script src="vendor/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+<script src="vendor/jquery.gmap/jquery.gmap.min.js"></script>
+
+<!--Reference the SignalR library. -->
+<script src="Scripts/jquery.signalR-2.2.3.min.js"></script>
+<!--Reference the autogenerated SignalR hub script. -->
+<script src="signalr/hubs"></script>
+
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC3Zg6NzqF2rJatJpR7512CkHHizuIkiEk"></script>
+<script>
+    var distinationLocations = [];
+
+    $(function() {
+        // Declare a proxy to reference the hub.   
+        var trackings = $.connection.trackingHub;
+
+        var map = initialize();
+        // Create a function that the hub can call to broadcast messages.
+        trackings.client.RecieveNotification = function(myData) {
+            distinationLocations = myData;
+            setMarkers(map, distinationLocations);
+
+        };
+        // Start the connection.
+
+
+        window.setInterval(function() {
+                $.connection.hub.start().done(function() {
+                    trackings.server.sendNotifications();
+                }).fail(function(e) {
+                    alert(e);
+                });
+            },
+            5000);
+    });
+
+    function initialize() {
+
+        google.maps.Map.prototype.markers = new Array();
+
+        google.maps.Map.prototype.addMarker = function(marker) {
+            this.markers[this.markers.length] = marker;
+        };
+
+        google.maps.Map.prototype.getMarkers = function() {
+            return this.markers;
+        };
+
+        google.maps.Map.prototype.clearMarkers = function() {
+            for (var i = 0; i < this.markers.length; i++) {
+                this.markers[i].setMap(null);
+            }
+            this.markers = new Array();
+        };
+
+        google.maps.Marker.prototype._setMap = google.maps.Marker.prototype.setMap;
+
+        google.maps.Marker.prototype.setMap = function(map) {
+            if (map) {
+                map.markers[map.markers.length] = this;
+            }
+            this._setMap(map);
+        };
+        var infoWindow = new google.maps.InfoWindow();
+        var pos = {};
+
+        var myMap = new google.maps.Map(document.getElementById("default"));
+
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function(position) {
+                pos = {
+                    lat: position.coords.latitude,
+                    lng: position.coords.longitude
+                };
+
+                var myOptions = {
+                    center: new google.maps.LatLng(pos.lat || 24.7281755, pos.lng || 46.6434111),
+                    zoom: 12,
+                    mapTypeId: google.maps.MapTypeId.ROADMAP
+
+                };
+                myMap.setOptions(myOptions);
+
+            }, function() {
+                handleLocationError(true, infoWindow, map.getCenter());
+                var myOptions = {
+                    center: new google.maps.LatLng(24.7281755, 46.6434111),
+                    zoom: 12,
+                    mapTypeId: google.maps.MapTypeId.ROADMAP
+                };
+                myMap.setOptions(myOptions);
+
+            });
+        } else {
+            // Browser doesn't support Geolocation
+            handleLocationError(false, infoWindow, map.getCenter());
+            var myOptions = {
+                center: new google.maps.LatLng(24.7281755, 46.6434111),
+                zoom: 12,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            };
+            myMap.setOptions(myOptions);
+        }
+
+        return myMap;
+
+    }
+    function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+        infoWindow.setPosition(pos);
+        infoWindow.setContent(browserHasGeolocation
+            ? 'Error: The Geolocation service failed.'
+            : 'Error: Your browser doesn\'t support geolocation.');
+    }
+
+    function setMarkers(map, locations) {
+
+        var marker, i;
+        map.clearMarkers();
+
+        for (i = 0; i < locations.length; i++) {
+
+            var modem = locations[i].ModemId;
+            var lat = locations[i].Lat;
+            var long = locations[i].Long;
+            var direction = locations[i].Direction;
+            var speed = locations[i].Speed;
+
+            var latlngset = new google.maps.LatLng(lat, long);
+
+            marker = new google.maps.Marker({
+                map: map,
+                title: modem,
+                position: latlngset
+            });
+
+            marker.setIcon({
+                path: google.maps.SymbolPath.FORWARD_CLOSED_ARROW,
+                scale: 6,
+                rotation: parseInt(direction)
+            });
+
+            map.addMarker(marker);
+            marker.setMap(map);
+
+            var content = "<h5> ModemId: " + modem + '</h5>' + "<h6>Lat: " + lat + ", Long: " + long + "</h6>" +
+                "<h6>direction: " + direction + ", Speed: " + speed + "</h6>";
+
+            var infowindow = new google.maps.InfoWindow();
+
+            google.maps.event.addListener(marker,
+                'click',
+                (function(marker, content, infowindow) {
+                    return function() {
+                        infowindow.setContent(content);
+                        infowindow.open(map, marker);
+                    };
+                })(marker, content, infowindow));
+
+        }
+    }
+
+</script>
+    
+<script type="text/javascript">
+    $(function () {
+        $('#datetimepicker1').datepicker({
+            format: 'dd/mm/yyyy',
+            rtl: true
+        });
+    });
+    $(function () {
+        $('#datetimepicker2').datepicker({
+            format: 'dd/mm/yyyy',
+            rtl: true
+        });
+    });
+</script>
+</body>
+</html>
