@@ -1,0 +1,14 @@
+#blockedAreasMap {
+    width: 100%;
+    height: 400px;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+.gmnoprint div[title="Draw a circle"], 
+.gmnoprint div[title="Add a marker"], 
+.gmnoprint div[title="Draw a line"],
+.gmnoprint div[title="Draw a rectangle"] { 
+    display: none !important;
+  }

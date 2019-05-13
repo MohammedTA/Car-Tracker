@@ -28,7 +28,6 @@ $(function () {
 			data: formData
 		})
 		.done(function(res) {
-			console.log(res);
 			$('#carTracking').modal("show");
 			$('#carTracking_body').html("<div id='carMap' style='height:500px'></div>");
 			//$('#carTracking_body').text(formData)
@@ -62,7 +61,6 @@ $(function () {
 	var map = initialize();
 	// Create a function that the hub can call to broadcast messages.
 	trackings.client.RecieveNotification = function (myData) {
-		console.log(myData);
 		distinationLocations = myData;
 		setMarkers(map, distinationLocations);
 		getCars(myData);

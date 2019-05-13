@@ -2,14 +2,15 @@
 	<ul class="nav nav-tabs">
 		<li class="active"><a data-toggle="tab" href="#modal-home">Main</a></li>
 		<li><a data-toggle="tab" href="#modal-menu1">Object groups</a></li>
+		<li><a data-toggle="tab" href="#blocked-areas-modal">Blocked areas</a></li>
 		<li><a data-toggle="tab" href="#modal-menu2">Drivers</a></li>
 		<li><a data-toggle="tab" href="#modal-menu3">Events</a></li>
 		<li><a data-toggle="tab" href="#modal-menu4">SMS gateway</a></li>
 		<li><a data-toggle="tab" href="#modal-menu5">SMS templates</a></li>
 		<li><a data-toggle="tab" href="#modal-menu6">GPRS templates</a></li>
 		<li><a data-toggle="tab" href="#modal-menu7">Widgets</a></li>
-	</ul> 
-	<div class="tab-content"> 
+	</ul>
+	<div class="tab-content">
 		<div id="modal-home" class="tab-pane fade in active">
 			<form>
 				<div class="form-group">
@@ -82,7 +83,7 @@
 						</select>
 					</div>
 				</div>
-				<hr> 
+				<hr>
 				<div class="form-group">
 					<div class="col-xs-12">
 						<h4>Daylight saving time</h4>
@@ -105,6 +106,23 @@
 		<div id="modal-menu1" class="tab-pane fade">
 			hi :)
 		</div>
+		<div id="blocked-areas-modal" class="tab-pane fade">
+
+			<div class="col-md-12">
+				<h4>Start drew the blocked areas on the map</h4>
+				<div class="form-group">
+					<button type="button" id="delete-button" class="btn btn-danger">Delete selected area</button>
+				</div>
+				<div class="form-group">
+					<button type="button" id="save-button" class="btn btn-success">Save coordinates</button>
+				</div>
+			</div>
+
+			<div class="col-md-12">
+				<div id="blockedAreasMap"></div>
+			</div>
+
+		</div>
 		<div id="modal-menu2" class="tab-pane fade">
 			hi :)
 		</div>
@@ -125,3 +143,4 @@
 		</div>
 	</div>
 </div>
+<script src="Scripts/setting.js"></script>
