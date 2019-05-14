@@ -76,6 +76,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data\GpsTrackingContext.cs" />
+    <Compile Include="Models\BlockedAreaCoordinate.cs" />
+    <Compile Include="Models\BlockedArea.cs" />
     <Compile Include="Models\GpsReal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

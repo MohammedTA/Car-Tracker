@@ -1,4 +1,4 @@
-﻿namespace CarsMap.Domain.Models
+﻿namespace Cars.Domain.Models
 {
 	public class GpsReal
 	{

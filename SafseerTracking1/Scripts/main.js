@@ -32,14 +32,8 @@ $(function () {
 			$('#carTracking_body').html("<div id='carMap' style='height:500px'></div>");
 			//$('#carTracking_body').text(formData)
 			var carMap = initCarMap();
-			// var carCoordinates = [
-			// 	{lat: 24.7281668, lng: 46.6433998},
-			// 	{lat: 24.728158, lng: 46.6434238},
-			// 	{lat: 24.7280325, lng: 46.6432828},
-			// 	{lat: 24.7280683, lng: 46.6432571}
-			//   ];
 
-			var carCoordinates = res.map(t => ({lat: parseInt(t.Lat), lng: parseInt(t.Lng)}));
+			var carCoordinates = res.map(t => ({lat: parseFloat(t.Lat), lng: parseFloat(t.Lng)}));
 
 			  var carPath = new google.maps.Polyline({
 				path: carCoordinates,
@@ -50,7 +44,6 @@ $(function () {
 			  });
 	  
 			  carPath.setMap(carMap);
-
 		  })
 		  .fail(function() {
 			alert( "error" );
@@ -85,6 +78,32 @@ $(function () {
 	},
 		5000);
 });
+
+function getBlockedAreas(map) {
+	$.ajax({
+		type: 'GET',
+		contentType: 'application/json',
+		url: 'api/BlockedArea',
+	})
+	.done( function (data, status) {
+		data.BlockedAreas.forEach(element => {
+			var coordinates = element.BlockedAreaCoordinates
+			.map(t => ({lat: parseFloat(t.Lat), lng: parseFloat(t.Lng)}));
+
+			var areaPath = new google.maps.Polygon({
+				path: coordinates,
+				strokeColor: '#FF0000',
+				strokeOpacity: 1.0,
+				strokeWeight: 0,
+				fillOpacity: 0.45,
+				});
+				areaPath.setMap(map);
+			});
+	})
+	.fail( function (data, status) {
+		console.log(data);
+	});
+}
 
 function initCarMap() {
 	var carMap = new google.maps.Map(document.getElementById('carMap'), {
@@ -206,6 +225,7 @@ function initialize() {
 		};
 		myMap.setOptions(myOptions);
 	}
+	getBlockedAreas(myMap);
 
 	return myMap;
 

@@ -1,43 +1,41 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Globalization;
 using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
 using Cars.Domain.Data;
-using Microsoft.Ajax.Utilities;
 
 namespace SafseerTracking1
 {
 	public class HistoryController : ApiController
 	{
-
 		// GET api/<controller>/5
-		public List<TrackPoint> Get([FromUri]Request request)
+		public List<TrackPoint> Get([FromUri] Request request)
 		{
-			GpsTrackingContext dbContext = new GpsTrackingContext();
+			var dbContext = new GpsTrackingContext();
 
 			return dbContext.GpsReal
 				.Where(t => t.ModemId == request.SelectedCar)
 				.ToList()
-				.Where(t => DateTime.ParseExact(t.ServerTimestamp, "M/d/yyyy h:mm:ss tt", CultureInfo.InvariantCulture) >= request.From 
-				            && DateTime.ParseExact(t.ServerTimestamp, "M/d/yyyy h:mm:ss tt", CultureInfo.InvariantCulture) <= request.To)
+				.Where(t =>
+					DateTime.ParseExact(t.ServerTimestamp, "M/d/yyyy h:mm:ss tt", CultureInfo.InvariantCulture) >=
+					request.From
+					&& DateTime.ParseExact(t.ServerTimestamp, "M/d/yyyy h:mm:ss tt", CultureInfo.InvariantCulture) <=
+					request.To)
 				.Select(t => new TrackPoint
 				{
 					Lat = t.Lat,
 					Lng = t.Long
-				}).ToList();			
+				}).ToList();
 		}
 
 		// POST api/<controller>
-		public void Post([FromBody]string value)
+		public void Post([FromBody] string value)
 		{
 		}
 
 		// PUT api/<controller>/5
-		public void Put(int id, [FromBody]string value)
+		public void Put(int id, [FromBody] string value)
 		{
 		}
 
