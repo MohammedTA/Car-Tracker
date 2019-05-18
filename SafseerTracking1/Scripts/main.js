@@ -32,7 +32,8 @@ $(function () {
 			$('#carTracking_body').html("<div id='carMap' style='height:500px'></div>");
 			//$('#carTracking_body').text(formData)
 			var carMap = initCarMap();
-
+			console.log(res);
+			setTrackMarkers(carMap, res);
 			var carCoordinates = res.map(t => ({lat: parseFloat(t.Lat), lng: parseFloat(t.Lng)}));
 
 			  var carPath = new google.maps.Polyline({
@@ -50,6 +51,54 @@ $(function () {
 		  });
 		
 	});
+
+	function setTrackMarkers(map, locations) {
+
+		var marker, i;
+		var car = "M17.402,0H5.643C2.526,0,0,3.467,0,6.584v34.804c0,3.116,2.526,5.644,5.643,5.644h11.759c3.116,0,5.644-2.527,5.644-5.644 V6.584C23.044,3.467,20.518,0,17.402,0z M22.057,14.188v11.665l-2.729,0.351v-4.806L22.057,14.188z M20.625,10.773 c-1.016,3.9-2.219,8.51-2.219,8.51H4.638l-2.222-8.51C2.417,10.773,11.3,7.755,20.625,10.773z M3.748,21.713v4.492l-2.73-0.349 V14.502L3.748,21.713z M1.018,37.938V27.579l2.73,0.343v8.196L1.018,37.938z M2.575,40.882l2.218-3.336h13.771l2.219,3.336H2.575z M19.328,35.805v-7.872l2.729-0.355v10.048L19.328,35.805z";
+		map.clearMarkers();
+	
+		for (i = 0; i < locations.length; i++) {
+	
+			var lat = locations[i].Lat;
+			var long = locations[i].Lng;
+			var speed = locations[i].Speed;
+			var time = locations[i].Date;
+			var carId = locations[i].CarId;
+			var direction = locations[i].CarDirection;
+			var latlngset = new google.maps.LatLng(lat, long);
+			marker = new google.maps.Marker({
+				map: map,
+				title: carId,
+				position: latlngset
+			});
+	
+			marker.setIcon({
+				color: "green",
+				rotation: parseInt(direction),
+				path: car,
+				scale: .5
+			});
+	
+			map.addMarker(marker);
+			marker.setMap(map);
+			var content = "<h5> Name: " + carId + '</h5>' + "<h6>Lat: " + lat + ", Long: " + long + "</h6>" +
+				", Speed: " + speed + ", Time: " + time + "</h5>";
+	
+			var infowindow = new google.maps.InfoWindow();
+	
+			google.maps.event.addListener(marker,
+				'click',
+				(function (marker, content, infowindow) {
+					return function () {
+						infowindow.setContent(content);
+						infowindow.open(map, marker);
+					};
+				})(marker, content, infowindow));
+	
+		}
+		
+	}
 
 	var map = initialize();
 	// Create a function that the hub can call to broadcast messages.

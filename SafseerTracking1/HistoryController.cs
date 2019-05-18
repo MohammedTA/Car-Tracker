@@ -25,7 +25,11 @@ namespace SafseerTracking1
 				.Select(t => new TrackPoint
 				{
 					Lat = t.Lat,
-					Lng = t.Long
+					Lng = t.Long,
+					Speed = t.Speed,
+					Date = DateTime.ParseExact(t.ServerTimestamp, "M/d/yyyy h:mm:ss tt", CultureInfo.InvariantCulture),
+					CarId = t.ModemId,
+					CarDirection = t.Direction
 				}).ToList();
 		}
 
@@ -56,5 +60,9 @@ namespace SafseerTracking1
 	{
 		public string Lat { get; set; }
 		public string Lng { get; set; }
+		public string Speed { get; set; }
+		public string CarId { get; set; }
+		public string CarDirection { get; set; }
+		public DateTime Date { get; set; }
 	}
 }
