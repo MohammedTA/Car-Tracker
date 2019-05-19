@@ -118,6 +118,7 @@
     <Content Include="css\bootstrap.min.css" />
     <Content Include="css\datepicker.css" />
     <Content Include="css\LoginCSS.css" />
+    <Content Include="css\main.css" />
     <Content Include="css\select2.min.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="img\background.jpg" />

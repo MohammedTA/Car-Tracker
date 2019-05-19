@@ -6,7 +6,6 @@
     position: relative;
 }
 
-.gmnoprint div[title="Draw a circle"], 
 .gmnoprint div[title="Add a marker"], 
 .gmnoprint div[title="Draw a line"],
 .gmnoprint div[title="Draw a rectangle"] { 

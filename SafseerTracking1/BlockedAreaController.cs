@@ -24,7 +24,8 @@ namespace SafseerTracking1
 						Lat = c.Lat,
 						Lng = c.Long
 					}),
-					Name = t.Name
+					Name = t.Name,
+					Radius = t.Radius
 				});
 			return new BlockedAreaRequest
 			{
@@ -51,7 +52,7 @@ namespace SafseerTracking1
 			{
 				foreach (var requestBlockedArea in request.BlockedAreas)
 				{
-					var area = new BlockedArea(requestBlockedArea.Name);
+					var area = new BlockedArea(requestBlockedArea.Name, requestBlockedArea.Radius);
 					foreach (var areaCoordinate in requestBlockedArea.BlockedAreaCoordinates)
 					{
 						area.BlockedAreaCoordinates.Add(new BlockedAreaCoordinate(areaCoordinate.Lat,
@@ -96,6 +97,7 @@ namespace SafseerTracking1
 	public class BlockedAreaModel
 	{
 		public string Name { get; set; }
+		public decimal? Radius { get; set; }
 		public IEnumerable<BlockedAreaCoordinateModel> BlockedAreaCoordinates { get; set; }
 	}
 

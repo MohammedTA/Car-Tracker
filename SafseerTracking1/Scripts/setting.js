@@ -29,7 +29,7 @@
 
 	function uniqueId() {
 		return (Date.now().toString(36) + Math.random().toString(36).substr(2, 5)).toUpperCase()
-	  }
+	}
 
 	function initialize() {
 		var blockedAreasMap = new google.maps.Map(document.getElementById('blockedAreasMap'), {
@@ -61,59 +61,97 @@
 			contentType: 'application/json',
 			url: 'api/BlockedArea',
 		})
-		.done( function (data, status) {
-			data.BlockedAreas.forEach(element => {
-				var coordinates = element.BlockedAreaCoordinates
-				.map(t => ({lat: parseFloat(t.Lat), lng: parseFloat(t.Lng)}));
-				var areaPath = new google.maps.Polygon({
-					path: coordinates,
-					strokeColor: '#FF0000',
-					strokeOpacity: 1.0,
-					strokeWeight: 0,
-					fillOpacity: 0.45,
-				  });
-				  areaPath.setMap(blockedAreasMap);
-				  areaPath.name = element.Name;
-				  blockedAreas.push({ Name: element.Name, BlockedAreaCoordinates: coordinates });
+			.done(function (data, status) {
+				data.BlockedAreas.forEach(element => {
+					var coordinates = element.BlockedAreaCoordinates
+						.map(t => ({ lat: parseFloat(t.Lat), lng: parseFloat(t.Lng) }));
+					if (element.Radius) {
+						var areaPath = new google.maps.Circle({
+							strokeColor: '#FF0000',
+							strokeOpacity: 1.0,
+							strokeWeight: 0,
+							fillOpacity: 0.45,
+							center: { lat: coordinates[0].lat, lng: coordinates[0].lng },
+							radius: element.Radius
+						});
+						areaPath.setMap(blockedAreasMap);
+						areaPath.name = element.Name;
 
-				  google.maps.event.addListener(areaPath, 'click', function () {
-					setSelection(areaPath);
+					}
+					else {
+						var areaPath = new google.maps.Polygon({
+							path: coordinates,
+							strokeColor: '#FF0000',
+							strokeOpacity: 1.0,
+							strokeWeight: 0,
+							fillOpacity: 0.45,
+						});
+						areaPath.setMap(blockedAreasMap);
+						areaPath.name = element.Name;
+					}
+					blockedAreas.push({ Name: element.Name, Radius: element.Radius, BlockedAreaCoordinates: coordinates });
+
+					google.maps.event.addListener(areaPath, 'click', function () {
+						setSelection(areaPath);
+					});
 				});
+			})
+			.fail(function (data, status) {
+				console.log(data);
 			});
-		})
-		.fail( function (data, status) {
-			console.log(data);
-		});
 
 
 		google.maps.event.addListener(drawingManager, 'overlaycomplete', function (e) {
 			if (e.type != google.maps.drawing.OverlayType.MARKER) {
-				// Switch back to non-drawing mode after drawing a shape.
-				drawingManager.setDrawingMode(null);
-				var shapeName = uniqueId();
-				var coordinates = [];
-				// Add an event listener that selects the newly-drawn shape when the user
-				// mouses down on it.
-				var newShape = e.overlay;
-				newShape.type = e.type;
-				newShape.name = shapeName;
+				if (e.type == google.maps.drawing.OverlayType.POLYGON) {
+					// Switch back to non-drawing mode after drawing a shape.
+					drawingManager.setDrawingMode(null);
+					var shapeName = uniqueId();
+					var coordinates = [];
+					// Add an event listener that selects the newly-drawn shape when the user
+					// mouses down on it.
+					var newShape = e.overlay;
+					newShape.type = e.type;
+					newShape.name = shapeName;
 
-				google.maps.event.addListener(newShape, 'click', function () {
+					google.maps.event.addListener(newShape, 'click', function () {
+						setSelection(newShape);
+					});
+
 					setSelection(newShape);
-				});
 
-				setSelection(newShape);
+					var path = newShape.getPath();
+					for (var i = 0; i < path.length; i++) {
+						coordinates.push({
+							Lat: path.getAt(i).lat(),
+							Lng: path.getAt(i).lng()
+						});
+					}
+					blockedAreas.push({ Name: shapeName, Radius: null, BlockedAreaCoordinates: coordinates });
+				} else {
+					var coordinates = [];
+					drawingManager.setDrawingMode(null);
+					var shapeName = uniqueId();
+					var newShape = e.overlay;
+					newShape.type = e.type;
+					newShape.name = shapeName;
 
-				var path = newShape.getPath();
-				for (var i = 0; i < path.length; i++) {
+					google.maps.event.addListener(newShape, 'click', function () {
+						setSelection(newShape);
+					});
+
+					setSelection(newShape);
 					coordinates.push({
-						Lat: path.getAt(i).lat(),
-						Lng: path.getAt(i).lng()
+						Lat: newShape.center.lat(),
+						Lng: newShape.center.lng()
+					})
+
+					blockedAreas.push({
+						Name: shapeName, Radius: newShape.radius, BlockedAreaCoordinates: coordinates
 					});
 				}
-
-				blockedAreas.push({ Name: shapeName, BlockedAreaCoordinates: coordinates });
 			}
+			console.log(blockedAreas);
 			return false;
 		});
 		$(".alert-success").hide();
@@ -123,20 +161,20 @@
 				type: 'POST',
 				contentType: 'application/json',
 				url: 'api/BlockedArea',
-				data: JSON.stringify({blockedAreas})
+				data: JSON.stringify({ blockedAreas })
 			})
-			.done( function (data, status) {
-				//do whatever you want with the return data upon successful return
-				$(".alert-success").fadeTo(2000, 500).slideUp(500, function(){
-					$(".alert-success").slideUp(500);
+				.done(function (data, status) {
+					//do whatever you want with the return data upon successful return
+					$(".alert-success").fadeTo(2000, 500).slideUp(500, function () {
+						$(".alert-success").slideUp(500);
+					});
+				})
+				.fail(function (data, status) {
+					//do whatever you want with the return data upon error
+					$(".alert-danger").fadeTo(2000, 500).slideUp(500, function () {
+						$(".alert-danger").slideUp(500);
+					});
 				});
-			})
-			.fail( function (data, status) {
-				//do whatever you want with the return data upon error
-				$(".alert-danger").fadeTo(2000, 500).slideUp(500, function(){
-					$(".alert-danger").slideUp(500);
-				});
-			});
 		}
 
 
@@ -145,7 +183,6 @@
 		google.maps.event.addListener(drawingManager, 'drawingmode_changed', clearSelection);
 		google.maps.event.addListener(blockedAreasMap, 'click', clearSelection);
 		google.maps.event.addDomListener(document.getElementById('delete-button'), 'click', deleteSelectedShape);
-
 		google.maps.event.addDomListener(document.getElementById('save-button'), 'click', saveBlockedAreas);
 
 	}
